@@ -1,23 +1,22 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>
-            Todolist
-        </title>
-
-    </head>
-    <body>
-            <h1> <%= kindOfDay %> TodoList</h1>
-        
-            <ul>
-                <li>Buy Food</li>
-                <li>cook Food</li>
-                <li>enjoy Food</li>
-            </ul>
-            <form>
-                <input>
+<%- include("header") -%>
+        <div class="box" id="heading">
+            <h1> <%= listTitle %></h1>
+        </div>
+            <div class="box">
                 
-            </form>
-        
-    </body>
-</html>
+                    
+                    <!-- for each item in newListItem, we create a new <li> in <ul> -->
+                    <% newListItems.forEach(function(item){ %> 
+                        <div class="item">
+                            <input type="checkbox">
+                            <p> <%= item %> </p>
+                        </div>  
+                        
+                    <% }) %>  
+                    
+                    <form action="/" method="post">
+                        <input placeholder="New Item" type="text" name="newItem" autocomplete="off">
+                        <button type="submit" name="list" value=<%= listTitle %>>+</button>
+                    </form>
+            </div>
+<%- include("footer") -%>
